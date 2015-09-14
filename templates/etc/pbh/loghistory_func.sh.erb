@@ -1,0 +1,146 @@
+## README ########################################################
+##                                                              ##
+## This script is being managed by Puppet Master, don't modify! ##
+##                                                              ##
+########################################### by Mihai Cornateanu ##
+# Set the bash variable PROMPT_COMMAND to the name of this
+# function and include these options:
+#     e - add the output of an extra command contained in the histentrycmdextra variable
+#     h - add the hostname
+#     y - add the terminal device (tty)
+#     c - add a comment to the log
+#     n - don't add the directory
+#     t - add the from and to directories for cd commands
+#     l - path to the log file (default = ${HOME}/.history_log.${HOSTNAME})
+#     ext or a variable
+_loghistory()
+{
+	local comment=
+	local CommentOpt=
+	local cwd=
+	local datetimestamp=
+	local ExtraOpt=
+	local extra="$REALUSER"
+	local histentry=
+	local histentrycmd=
+	local histentrycmdextra="echo 'History Entry Command Extra'; uname -a; w; id"
+	local histleader=
+	local histlinenum=
+	local hostname=
+	local ip=
+	local logfile="${HOME}/.pbh/history_log.${HOSTNAME}"
+	local NoneOpt=
+	local option=
+	local options=":hyntel:c:"
+	local script=$FUNCNAME
+	local text=
+	local ToOpt=
+	local tty=
+	local usage="Usage: $script [-h] [-y] [-n|-t] [-e] [text] [-l logfile] [-c comment]"
+        OPTIND=1
+	while getopts $options option; do
+		case $option in
+			h ) hostname=$HOSTNAME;;
+			y ) tty=$(tty);;
+			n ) if [[ $ToOpt ]]; then
+				echo "$script: can't include both -n and -t."
+				echo $usage
+				return 1
+			else
+				NoneOpt=1
+			fi;;
+			t ) if [[ $NoneOpt ]]; then
+				echo "$script: can't include both -n and -t."
+				echo $usage
+				return 1
+			else
+				ToOpt=1
+			fi;;
+			c ) CommentOpt=1;
+			comment=$OPTARG;;
+			e ) ExtraOpt=1;;
+			l ) logfile=$OPTARG;;
+			: ) echo "$script: missing filename: -$OPTARG."
+			echo $usage
+			return 1;;
+			* ) echo "$script: invalid option: -$OPTARG."
+			echo $usage
+			return 1;;
+		esac
+	done
+	text=($@)
+	text="${text[*]:$OPTIND - 1:${#text[*]}}"
+	history -a
+	histentry=$(history 1)
+	histleader=`expr "$histentry" : ' *\([0-9]*  \[[0-9]*-[0-9]*-[0-9]* [0-9]*:[0-9]*:[0-9]*\]\)'`
+	histlinenum=`expr "$histleader" : ' *\([0-9]*  \)'`
+	datetimestamp=`expr "$histleader" : '.*\(\[[0-9]*-[0-9]*-[0-9]* [0-9]*:[0-9]*:[0-9]*\]\)'`
+	if [[ -z $datetimestamp ]]; then
+		datetimestamp=$(date '+[%F %T]')
+	fi
+	histentrycmd=${histentry#*~~~ }
+	if [[ $CommentOpt ]]; then
+		if [[ -z $__PREV_COMMENT ]]; then
+			export __PREV_COMMENT="$comment"
+		elif [[ "$__PREV_COMMENT" == "$comment" ]]; then
+			return
+		fi
+	else
+        	if [[ -z $__PREV_HISTLINE || -z $__PREV_HISTCMD ]]; then
+			export __PREV_HISTLINE=$histlinenum
+			export __PREV_HISTCMD=$histentrycmd
+			return
+		elif [[ $histlinenum == $__PREV_HISTLINE  && $histentrycmd == $__PREV_HISTCMD ]]; then
+			return
+		else
+			export __PREV_HISTLINE=$histlinenum
+			export __PREV_HISTCMD=$histentrycmd
+		fi
+	fi
+	if [[ -z $NoneOpt ]]; then
+		if [[ ${histentrycmd%% *} == "cd" || ${histentrycmd%% *} == "jd" ]]; then
+			if [[ -z $OLDPWD ]]; then
+				OLDPWD="${HOME}"
+			fi
+			if [[ $ToOpt ]]; then
+				cwd="$OLDPWD -> $PWD"
+			else
+				cwd=$OLDPWD
+			fi
+		else
+			cwd=$PWD
+		fi
+	fi
+	if [[ $ExtraOpt && $histentrycmdextra ]]; then
+		extra=$(eval "$histentrycmdextra")
+	fi
+	if [[ $CommentOpt ]]; then
+		histentrycmd="${datetimestamp} ${tty:+[$tty] }${ip:+[$ip] }${extra:+[$extra] }~~~ ${hostname:+$hostname:}$cwd ~~~ ${comment}"
+	else
+		histentrycmd="${datetimestamp} ${text:+[$text] }${tty:+[$tty] }${ip:+[$ip] }${extra:+[$extra] }~~~ ${hostname:+$hostname:}$cwd ~~~ ${histentrycmd# * ~~~ }"
+	fi
+	echo "$histentrycmd" >> $logfile || echo "$script: file error." ; return 1
+}
+alias h='history'
+hh()
+{
+	if [[ -z $1 ]]; then
+		cat ${HOME}/.pbh/history_log.${HOSTNAME}
+	else
+		tail -n $1 ${HOME}/.pbh/history_log.${HOSTNAME}
+	fi
+}
+hd()
+{
+	if [[ -z $1 ]]; then
+		awk -F ' ~~~ ' -- '{print $2}' ${HOME}/.pbh/history_log.${HOSTNAME} | uniq
+	else
+		awk -F ' ~~~ ' -- '{print $2}' ${HOME}/.pbh/history_log.${HOSTNAME} | uniq | tail -n $1
+	fi
+}
+# export PROMPT_COMMAND='_loghistory -y'
+##################################################################
+##    19-JUN-2009 - Dennis Williamson @ StackOverflow:945288    ##
+##    24-NOV-2011 - Jeet Sukumaran @ http://www.jeetworks.org   ##
+##    24-AUG-2015 - Mihai Cornateanu @ http://www.itmanager.ro  ##
+##################################################################

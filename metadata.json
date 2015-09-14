@@ -1,0 +1,28 @@
+{
+  "name": "itmanagerro-bash_history",
+  "version": "1.0.0",
+  "author": "Mihai Cornateanu",
+  "summary": "Puppet module for Bash history",
+  "license": "Apache-2.0",
+  "source": "https://github.com/itmanagerro/puppet-bash_history.git",
+  "description": "Puppet module for installing and configuring an extended Bash history (very usefull)",
+  "project_page": "https://github.com/itmanagerro/puppet-bash_history",
+  "issues_url": "https://github.com/itmanagerro/puppet-bash_history/issues",
+  "tags": ["puppet", "module", "bash", "history", "bash_history", "extended", "extra", "realtime"],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "6.6", "6.7" ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "6.0.10", "7.8", "8.1" ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=1.2.3 <6.5.4"
+    }
+  ]
+}
