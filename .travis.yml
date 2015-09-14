@@ -29,3 +29,4 @@ matrix:
       gemfile: .gemfile
 notifications:
   email: mihai.cornateanu@itmanager.ro
+
