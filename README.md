@@ -60,9 +60,13 @@ class { 'bash_history':
 ~~~
 
 ####Example (complex)
-
-~~~
+~~~bash
 [2016-01-01 01:01:01] [/dev/pts/0] [192.168.0.1 65535 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+[2016-01-01 01:02:21] [/dev/pts/2] [192.168.0.8 35535 22] [George] ~~~ /root ~~~ cd /var/www
+[2016-01-01 01:03:31] [/dev/pts/2] [192.168.0.8 64535 22] [George] ~~~ /var/www ~~~ rm -fr index.html
+[2016-01-01 01:04:41] [/dev/pts/3] [192.168.0.6 56435 22] [Robert] ~~~ /opt ~~~ mkdir solr-testing
+[2016-01-01 01:05:51] [/dev/pts/6] [192.168.0.3 45645 22] [Gina] ~~~ /tmp ~~~ cd /var/log
+[2016-01-01 01:06:01] [/dev/pts/6] [192.168.0.3 34564 22] [Gina] ~~~ /var/log ~~~ tail -f mail.info
 ~~~
 
 ##Parameters
