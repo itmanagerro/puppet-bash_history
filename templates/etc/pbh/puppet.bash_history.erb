@@ -17,7 +17,7 @@ if [ "$PS1" ]; then
 	export HOSTNAME=`hostname -s || echo unknown-hostname`
 	export WHOAMI=$(who am i)
 	[[ ! -d ${HOME}/.pbh ]] && mkdir -p "${HOME}/.pbh" && touch "${HOME}/.pbh/history_log.${HOSTNAME}"
-	[[ -f /etc/pbh/loghistory_func.sh ]] && . /etc/pbh/loghistory_func.sh && export PROMPT_COMMAND='_loghistory -y'
+	[[ -f /etc/pbh/loghistory_func.sh ]] && . /etc/pbh/loghistory_func.sh && export PROMPT_COMMAND='_loghistory'
 	[[ -f /etc/pbh/cd_func.sh ]] && . /etc/pbh/cd_func.sh
 	if type -t hd >/dev/null && type -t cd_func >/dev/null; then
 		for x in `hd 20` `pwd`; do
@@ -25,7 +25,7 @@ if [ "$PS1" ]; then
 		done
 	fi
 	if type _loghistory >/dev/null 2>&1; then
-		_loghistory -y -c "Logged in as user ${WHOAMI}"
+		_loghistory -c "Logged in as user ${WHOAMI}"
 	else
 		history -a
 	fi

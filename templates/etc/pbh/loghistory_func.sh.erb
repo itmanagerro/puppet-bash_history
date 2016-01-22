@@ -20,14 +20,14 @@ _loghistory()
 	local cwd=
 	local datetimestamp=
 	local ExtraOpt=
-	local extra=<% if @ssh_username == true %>"$REALUSER"<% end %>
+	local extra=<% if @hh_username == true %>"$REALUSER"<% end %>
 	local histentry=
 	local histentrycmd=
 	local histentrycmdextra="echo 'History Entry Command Extra'; uname -a; w; id"
 	local histleader=
 	local histlinenum=
 	local hostname=
-	local ip=<% if @ssh_clientip == true %>"$SSH_CLIENT"<% end %>
+	local ip=<% if @hh_clientip == true %>"$SSH_CLIENT"<% end %>
 	local logfile="${HOME}/.pbh/history_log.${HOSTNAME}"
 	local NoneOpt=
 	local option=
@@ -35,13 +35,12 @@ _loghistory()
 	local script=$FUNCNAME
 	local text=
 	local ToOpt=
-	local tty=
-	local usage="Usage: $script [-h] [-y] [-n|-t] [-e] [text] [-l logfile] [-c comment]"
+	local tty=<% if @hh_clientip == true %>"$(tty)"<% end %>
+	local usage="Usage: $script [-h] [-n|-t] [-e] [text] [-l logfile] [-c comment]"
         OPTIND=1
 	while getopts $options option; do
 		case $option in
 			h ) hostname=$HOSTNAME;;
-			y ) tty=$(tty);;
 			n ) if [[ $ToOpt ]]; then
 				echo "$script: can't include both -n and -t."
 				echo $usage
@@ -138,7 +137,7 @@ hd()
 		awk -F ' ~~~ ' -- '{print $2}' ${HOME}/.pbh/history_log.${HOSTNAME} | uniq | tail -n $1
 	fi
 }
-# export PROMPT_COMMAND='_loghistory -y'
+# export PROMPT_COMMAND='_loghistory'
 ##################################################################
 ##    19-JUN-2009 - Dennis Williamson @ StackOverflow:945288    ##
 ##    24-NOV-2011 - Jeet Sukumaran @ http://www.jeetworks.org   ##

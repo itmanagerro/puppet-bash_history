@@ -1,6 +1,6 @@
 #!/bin/bash
 if type _loghistory >/dev/null 2>&1; then
-	_loghistory -y -c "Logged out from user ${WHOAMI}"
+	_loghistory -c "Logged out from user ${WHOAMI}"
 else
 	history -a
 fi
