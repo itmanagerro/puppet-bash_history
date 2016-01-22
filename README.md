@@ -42,29 +42,33 @@ include bash_history
 ```
 
 ### A more complex configuration
-```
-{
-  'bash_history':
-    hh_clientip => true,
-    hh_terminal => true,
-    hh_username => true,
+```ruby
+class { 'bash_history':
+  hh_clientip => true,
+  hh_terminal => true,
+  hh_username => true,
 }
 ```
+
+```
+[2016-01-01 01:01:01] [/dev/pts/0] [10.10.10.110 56049 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+```
+
 ### Full List of optional configuration parameters:
 
 **hh_clientip** = Appending $SSH_CLIENT to bash history (hh)
 ```
-[2016-01-01 01:01:01] **[10.10.10.110 56049 22]** ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+[2016-01-01 01:01:01] [10.10.10.110 56049 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
 **hh_terminal** = Appending $(tty) to bash history (hh)
 ```
-[2016-01-01 01:01:01] **[/dev/pts/0]** ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+[2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
 **hh_username** = Appending $REALUSER to bash history (hh)
 ```
-[2016-01-01 01:01:01] **[Mihai]** ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+[2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
 Copyright 2016 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)
