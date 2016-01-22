@@ -1,9 +1,5 @@
 # Class bash_history::config
-class bash_history::config
-(
-  $ssh_username = $::bash_history::ssh_username,
-  $ssh_clientip = $::bash_history::ssh_clientip,
-)
+class bash_history::config inherits bash_history
 {
   file
   {
