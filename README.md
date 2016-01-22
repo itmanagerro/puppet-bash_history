@@ -50,26 +50,13 @@ class { 'bash_history':
 }
 ```
 
+#### Example
+
 ```
 [2016-01-01 01:01:01] [/dev/pts/0] [10.10.10.110 56049 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
-### Full List of optional configuration parameters:
-
-**hh_clientip** = Appending $SSH_CLIENT to bash history (hh)
-```
-[2016-01-01 01:01:01] [10.10.10.110 56049 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
-```
-
-**hh_terminal** = Appending $(tty) to bash history (hh)
-```
-[2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
-```
-
-**hh_username** = Appending $REALUSER to bash history (hh)
-```
-[2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
-```
+### Full List of optional configuration parameters
 
 | Parameter | Description |
 |:------------:|:---------------:|
@@ -77,7 +64,13 @@ class { 'bash_history':
 | **hh_terminal** | Include $(tty) to bash history (hh) |
 | **hh_username** | Include $REALUSER to bash history (hh) |
 
+#### Example
 
+| Parameter | Example |
+|:------------:|:---------------:|
+| **hh_clientip** | [2016-01-01 01:01:01] [10.10.10.110 56049 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
+| **hh_terminal** | [2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
+| **hh_username** | [2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
 
 ## Full List of bash commands accepted
 
