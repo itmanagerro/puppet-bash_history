@@ -36,12 +36,12 @@ I will use your requests for creating rspec for specific operating system.
 This module should require nothing more than [minimal configuration](#minimal-configuration).
 
 If you need aditional features or if you have any issues, please [contact me](https://github.com/itmanagerro/puppet-bash_history/issues/new).
-### Minimal configuration
+#### Minimal configuration
 ```
 include bash_history
 ```
 
-### A more complex configuration
+#### A more complex configuration
 ```ruby
 class { 'bash_history':
   hh_clientip => true,
@@ -56,7 +56,7 @@ class { 'bash_history':
 [2016-01-01 01:01:01] [/dev/pts/0] [192.168.0.1 65535 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
-### Full List of optional configuration parameters
+## Full List of optional configuration parameters
 
 | Parameter | Description |
 |:------------:|:---------------:|
