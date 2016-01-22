@@ -1,8 +1,9 @@
 # Class bash_history
 class bash_history
 (
-  $ssh_username = $::bash_history::params::ssh_username,
-  $ssh_clientip = $::bash_history::params::ssh_clientip,
+  $hh_clientip = $::bash_history::params::ssh_clientip,
+  $hh_terminal = $::bash_history::params::ssh_terminal,
+  $hh_username = $::bash_history::params::ssh_username,
 )
 {
   include bash_history::config
