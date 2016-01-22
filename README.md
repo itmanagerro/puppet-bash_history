@@ -73,13 +73,12 @@ class { 'bash_history':
 
 ## Full List of bash commands accepted
 
-**hh** = show full extended history
-
-**hh 10** = show last 10 lines from extented history
-
-**hd** = show full directory stacks
-
-**hd 10** = show last 10 directory staks
+| Command | Description |
+|:------------:|:---------------:|
+| hh | show full extended history |
+| hh 10 | show last 10 lines of extented history |
+| hd | show full directories stack |
+| hd 10 | show last 10 lines of directories stack |
 
 
 Copyright 2016 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)
