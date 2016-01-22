@@ -1,6 +1,6 @@
 puppet-bash_history
 ===============
-Puppet module for installing and configuring an extended Bash history (very usefull)
+Puppet module for installing and configuring an extended Bash history
 
 [![Build Status](https://img.shields.io/travis/itmanagerro/puppet-bash_history.svg?style=plastic)](https://travis-ci.org/itmanagerro/puppet-bash_history)
 [![Score Status](https://img.shields.io/puppetforge/f/itmanagerro/bash_history.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro/bash_history/scores)
@@ -20,12 +20,11 @@ Puppet module for installing and configuring an extended Bash history (very usef
 I have tested the module on all these machines:
 
 - CentOS:
-  - 6.6 (Final)
   - 6.7 (Final)
 - Debian:
   - 6.0.10 (Squeeze)
   - 7.8 (Wheezy)
-  - 8.1 (Jessie)
+  - 8.2 (Jessie)
 
 It should work on any Redhat or Debian based operating systems.
 
@@ -52,4 +51,4 @@ none yet... to be added
 none yet... to be added
 ```
 
-Copyright 2015 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)
+Copyright 2016 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)

@@ -5,7 +5,7 @@
   "summary": "Puppet module for Bash history",
   "license": "Apache-2.0",
   "source": "https://github.com/itmanagerro/puppet-bash_history.git",
-  "description": "Puppet module for installing and configuring an extended Bash history (very usefull)",
+  "description": "Puppet module for installing and configuring an extended Bash history",
   "project_page": "https://github.com/itmanagerro/puppet-bash_history",
   "issues_url": "https://github.com/itmanagerro/puppet-bash_history/issues",
   "tags": ["puppet", "module", "bash", "history", "bash_history", "extended", "extra", "realtime"],
