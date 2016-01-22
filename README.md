@@ -53,7 +53,7 @@ class { 'bash_history':
 #### Example
 
 ```
-[2016-01-01 01:01:01] [/dev/pts/0] [10.10.10.110 56049 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+[2016-01-01 01:01:01] [/dev/pts/0] [192.168.0.1 65535 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
 ### Full List of optional configuration parameters
@@ -68,7 +68,7 @@ class { 'bash_history':
 
 | Parameter | Example |
 |:------------:|:---------------:|
-| **hh_clientip** | [2016-01-01 01:01:01] [10.10.10.110 56049 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
+| **hh_clientip** | [2016-01-01 01:01:01] [192.168.0.1 65535 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
 | **hh_terminal** | [2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
 | **hh_username** | [2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
 
