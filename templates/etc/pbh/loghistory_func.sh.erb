@@ -20,14 +20,14 @@ _loghistory()
 	local cwd=
 	local datetimestamp=
 	local ExtraOpt=
-	local extra="$REALUSER"
+	local extra=<% if @ssh_username == true %>"$REALUSER"<% end %>
 	local histentry=
 	local histentrycmd=
 	local histentrycmdextra="echo 'History Entry Command Extra'; uname -a; w; id"
 	local histleader=
 	local histlinenum=
 	local hostname=
-	local ip=
+	local ip=<% if @ssh_clientip == true %>"$SSH_CLIENT"<% end %>
 	local logfile="${HOME}/.pbh/history_log.${HOSTNAME}"
 	local NoneOpt=
 	local option=
