@@ -71,4 +71,15 @@ class { 'bash_history':
 [2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
+## Full List of bash commands accepted
+
+**hh** = show full extended history
+
+**hh 10** = show last 10 lines from extented history
+
+**hd** = show full directory stacks
+
+**hd 10** = show last 10 directory staks
+
+
 Copyright 2016 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)
