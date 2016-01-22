@@ -11,10 +11,18 @@ Puppet module for installing and configuring an extended Bash history
 [![Modules Count](https://img.shields.io/puppetforge/mc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 [![Release Count](https://img.shields.io/puppetforge/rc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 
+(#features)
+(#supported-os)
+(#configuration)
+(#parameters)
+(#commands)
+
+
 ## Features
 - Realtime history append
 - Directories history
 - Adding extra attributes
+
 
 ## Supported OS
 I have tested the module on all these machines:
@@ -31,6 +39,7 @@ It should work on any Redhat or Debian based operating systems.
 If you need any other operating systems tested, please [let me know](https://github.com/itmanagerro/puppet-bash_history/issues/new).
 
 I will use your requests for creating rspec for specific operating system.
+
 
 ## Configuration
 This module should require nothing more than [minimal configuration](#minimal-configuration).
@@ -56,7 +65,8 @@ class { 'bash_history':
 [2016-01-01 01:01:01] [/dev/pts/0] [192.168.0.1 65535 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
-## Full List of optional configuration parameters
+
+## Parameters
 
 | Parameter | Description |
 |:------------:|:---------------:|
@@ -72,7 +82,8 @@ class { 'bash_history':
 | **hh_terminal** | [2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
 | **hh_username** | [2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
 
-## Full List of bash commands accepted
+
+## Commands
 
 | Command | Description |
 |:------------:|:---------------:|
@@ -80,6 +91,5 @@ class { 'bash_history':
 | **hh 10** | show last 10 lines of extented history |
 | **hd** | show full directories stack |
 | **hd 10** | show last 10 lines of directories stack |
-
 
 Copyright 2016 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)
