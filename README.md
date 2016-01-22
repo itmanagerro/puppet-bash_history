@@ -71,6 +71,16 @@ class { 'bash_history':
 [2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ```
 
+| Parameter | Description |
+|:------------:|:---------------:|
+| **hh_clientip** | Appending $SSH_CLIENT to bash history (hh) |
+| [2016-01-01 01:01:01] [10.10.10.110 56049 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
+| **hh 10** | show last 10 lines of extented history |
+| **hd** | show full directories stack |
+| **hd 10** | show last 10 lines of directories stack |
+
+
+
 ## Full List of bash commands accepted
 
 | Command | Description |
