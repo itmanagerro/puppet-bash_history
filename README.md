@@ -75,10 +75,10 @@ class { 'bash_history':
 
 | Command | Description |
 |:------------:|:---------------:|
-| hh | show full extended history |
-| hh 10 | show last 10 lines of extented history |
-| hd | show full directories stack |
-| hd 10 | show last 10 lines of directories stack |
+| **hh** | show full extended history |
+| **hh 10** | show last 10 lines of extented history |
+| **hd** | show full directories stack |
+| **hd 10** | show last 10 lines of directories stack |
 
 
 Copyright 2016 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)
