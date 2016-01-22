@@ -73,11 +73,9 @@ class { 'bash_history':
 
 | Parameter | Description |
 |:------------:|:---------------:|
-| **hh_clientip** | Appending $SSH_CLIENT to bash history (hh) |
-| [2016-01-01 01:01:01] [10.10.10.110 56049 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
-| **hh 10** | show last 10 lines of extented history |
-| **hd** | show full directories stack |
-| **hd 10** | show last 10 lines of directories stack |
+| **hh_clientip** | Include $SSH_CLIENT to bash history (hh) |
+| **hh_terminal** | Include $(tty) to bash history (hh) |
+| **hh_username** | Include $REALUSER to bash history (hh) |
 
 
 
