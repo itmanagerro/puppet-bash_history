@@ -11,15 +11,15 @@ Puppet module for installing and configuring an extended Bash history
 [![Modules Count](https://img.shields.io/puppetforge/mc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 [![Release Count](https://img.shields.io/puppetforge/rc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 
-[Features](#features)
-
-[Supported OS](#supported-os)
-
-[Configuration](#configuration)
-
-[Parameters](#parameters)
-
-[Commands](#commands)
+*[Features](#features)
+*[Supported OS](#supported-os)
+*[Configuration](#configuration)
+    * [Minimal configuration](#minimal-configuration)
+    * [Complex configuration](#a-more-complex-configuration)
+    * [Example (complex)](#)
+*[Parameters](#parameters)
+    * []()
+*[Commands](#commands)
 
 
 ## Features
@@ -63,7 +63,7 @@ class { 'bash_history':
 }
 ```
 
-#### Example
+#### Example (complex)
 
 ```
 [2016-01-01 01:01:01] [/dev/pts/0] [192.168.0.1 65535 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
@@ -78,7 +78,7 @@ class { 'bash_history':
 | **hh_terminal** | Include $(tty) to bash history (hh) |
 | **hh_username** | Include $REALUSER to bash history (hh) |
 
-#### Example
+#### Example (parameters)
 
 | Parameter | Example |
 |:------------:|:---------------:|
