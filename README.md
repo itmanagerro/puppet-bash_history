@@ -2,6 +2,22 @@ puppet-bash_history
 ===============
 Puppet module for installing and configuring an extended Bash history
 
+* [Features](#features)
+* [Supported OS](#supported-os)
+* [Configuration](#configuration)
+    * [Minimal configuration](#minimal-configuration)
+    * [Complex configuration](#a-more-complex-configuration)
+    * [Example](#example-complex)
+* [Parameters](#parameters)
+    * [Example](#example-parameters)
+* [Commands](#commands)
+
+
+## Features
+- Realtime history append
+- Directories history
+- Adding extra attributes
+
 [![Build Status](https://img.shields.io/travis/itmanagerro/puppet-bash_history.svg?style=plastic)](https://travis-ci.org/itmanagerro/puppet-bash_history)
 [![Score Status](https://img.shields.io/puppetforge/f/itmanagerro/bash_history.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro/bash_history/scores)
 [![Downloads Status](https://img.shields.io/puppetforge/dt/itmanagerro/bash_history.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro/bash_history)
@@ -10,22 +26,6 @@ Puppet module for installing and configuring an extended Bash history
 
 [![Modules Count](https://img.shields.io/puppetforge/mc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 [![Release Count](https://img.shields.io/puppetforge/rc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
-
-* [Features](#features)
-* [Supported OS](#supported-os)
-* [Configuration](#configuration)
-    * [Minimal configuration](#minimal-configuration)
-    * [Complex configuration](#a-more-complex-configuration)
-    * [Example (complex)](#)
-* [Parameters](#parameters)
-    * []()
-* [Commands](#commands)
-
-
-## Features
-- Realtime history append
-- Directories history
-- Adding extra attributes
 
 
 ## Supported OS
