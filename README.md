@@ -53,15 +53,18 @@ include bash_history
 ### Full List of optional configuration parameters:
 
 **hh_clientip** = Appending $SSH_CLIENT to bash history (hh)
+```
+[2016-01-01 01:01:01] **[10.10.10.110 56049 22]** ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+```
 
-Example: [2016-01-01 01:01:01] **[10.10.10.110 56049 22]** ~~~ /usr/src/puppet-bash_history ~~~ git commit -m "Message for commit"
-
-**hh_terminal** = Appending $TERMINAL to bash history (hh)
-
-Example: [2016-01-01 01:01:01] **[/dev/pts/0]** ~~~ /usr/src/puppet-bash_history ~~~ git commit -m "Message for commit"
+**hh_terminal** = Appending $(tty) to bash history (hh)
+```
+[2016-01-01 01:01:01] **[/dev/pts/0]** ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+```
 
 **hh_username** = Appending $REALUSER to bash history (hh)
-
-Example: [2016-01-01 01:01:01] **[Mihai]** ~~~ /usr/src/puppet-bash_history ~~~ git commit -m "Message for commit"
+```
+[2016-01-01 01:01:01] **[Mihai]** ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+```
 
 Copyright 2016 [Mihai Cornateanu @ ITManager](http://www.itmanager.ro)
