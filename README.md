@@ -12,9 +12,13 @@ Puppet module for installing and configuring an extended Bash history
 [![Release Count](https://img.shields.io/puppetforge/rc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 
 [Features](#features)
+
 [Supported OS](#supported-os)
+
 [Configuration](#configuration)
+
 [Parameters](#parameters)
+
 [Commands](#commands)
 
 
