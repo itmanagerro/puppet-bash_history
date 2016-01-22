@@ -1,2 +1,9 @@
+1.0.2 * Mihai Cornateanu
+        - Extended README
+        - 
+1.0.1 * Mihai Cornateanu
+        - Travis build in tests
+        - Puppet parameters default
+        - Fixed cd_func showing erros
 1.0.0 * Mihai Cornateanu
-	- nothing yet
+        - First commit
