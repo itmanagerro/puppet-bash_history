@@ -1,18 +1,20 @@
-puppet-bash_history
+#puppet-bash_history
 ===============
 Puppet module for installing and configuring an extended Bash history
 
-* [Features](#features)
-* [Supported OS](#supported-os)
-* [Configuration](#configuration)
-  * [Minimal configuration](#minimal-configuration)
-  * [Complex configuration](#a-more-complex-configuration)
-  * [Example](#example-complex)
-* [Parameters](#parameters)
-  * [Example](#example-parameters)
-* [Commands](#commands)
+####Table of Contents
 
-## Features
+1. [Features](#features)
+2. [Supported OS](#supported-os)
+3. [Configuration](#configuration)
+    * [Minimal configuration](#minimal-configuration)
+    * [Complex configuration](#a-more-complex-configuration)
+    * [Example](#example-complex)
+4. [Parameters](#parameters)
+    * [Example](#example-parameters)
+5. [Commands](#commands)
+
+##Features
 
 [![Build Status](https://img.shields.io/travis/itmanagerro/puppet-bash_history.svg?style=plastic)](https://travis-ci.org/itmanagerro/puppet-bash_history)
 [![Score Status](https://img.shields.io/puppetforge/f/itmanagerro/bash_history.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro/bash_history/scores)
@@ -27,15 +29,11 @@ Puppet module for installing and configuring an extended Bash history
 * Directories history
 * Adding extra attributes
 
-## Supported OS
+##Supported OS
 I have tested the module on all these machines:
 
-* CentOS:
-  * 6.7 (Final)
-* Debian:
-  * 6.0.10 (Squeeze)
-  * 7.8 (Wheezy)
-  * 8.2 (Jessie)
+* CentOS: 6.7 (Final)
+* Debian: 6.0.10 (Squeeze), 7.8 (Wheezy), 8.2 (Jessie)
 
 It should work on any Redhat or Debian based operating systems.
 
@@ -43,31 +41,31 @@ If you need any other operating systems tested, please [let me know](https://git
 
 I will use your requests for creating rspec for specific operating system.
 
-## Configuration
+##Configuration
 This module should require nothing more than [minimal configuration](#minimal-configuration).
 
 If you need aditional features or if you have any issues, please [contact me](https://github.com/itmanagerro/puppet-bash_history/issues/new).
-#### Minimal configuration
-```
+####Minimal configuration
+~~~puppet
 include bash_history
-```
+~~~
 
-#### A more complex configuration
-```ruby
+####A more complex configuration
+~~~puppet
 class { 'bash_history':
   hh_clientip => true,
   hh_terminal => true,
   hh_username => true,
 }
-```
+~~~
 
-#### Example (complex)
+####Example (complex)
 
-```
+~~~
 [2016-01-01 01:01:01] [/dev/pts/0] [192.168.0.1 65535 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
-```
+~~~
 
-## Parameters
+##Parameters
 
 | Parameter | Description |
 |:------------:|:---------------:|
@@ -77,18 +75,28 @@ class { 'bash_history':
 
 *hh_username require sshd_config "PermitUserEnvironment yes" and authorized_keys should include*
 
-*environment="REALUSER=Mihai" ssh-rsa AAAAB2NzA3za[...]AxB3cb2jeOsYQ== Mihai Cornateanu SSH KEY*
+~~~bash
+environment="REALUSER=Mihai" ssh-rsa AAAAB2NzA3za[...]AxB3cb2jeOsYQ== Mihai Cornateanu SSH KEY
+~~~
 
+####Example (parameters)
 
-#### Example (parameters)
+**hh_clientip**
+~~~history
+[2016-01-01 01:01:01] [192.168.0.1 65535 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+~~~
 
-| Parameter | Example |
-|:------------:|:---------------:|
-| **hh_clientip** | [2016-01-01 01:01:01] [192.168.0.1 65535 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
-| **hh_terminal** | [2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
-| **hh_username** | [2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux |
+**hh_terminal**
+~~~syslog
+[2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+~~~
 
-## Commands
+**hh_username**
+~~~puppet
+[2016-01-01 01:01:01] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+~~~
+
+##Commands
 
 | Command | Description |
 |:------------:|:---------------:|
