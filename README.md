@@ -75,9 +75,9 @@ class { 'bash_history':
 | **hh_terminal** | Include $(tty) to bash history (hh) |
 | **hh_username** | Include $REALUSER to bash history (hh) |
 
-_ hh_username require sshd_config "PermitUserEnvironment yes" and authorized_keys should include _
+* hh_username require sshd_config "PermitUserEnvironment yes" and authorized_keys should include *
 
-_ environment="REALUSER=Mihai" ssh-rsa AAAAB2NzA3za[...]AxB3cb2jeOsYQ== Mihai Cornateanu SSH KEY _
+* environment="REALUSER=Mihai" ssh-rsa AAAAB2NzA3za[...]AxB3cb2jeOsYQ== Mihai Cornateanu SSH KEY *
 
 
 #### Example (parameters)
