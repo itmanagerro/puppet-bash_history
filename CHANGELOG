@@ -1,9 +1,10 @@
+1.0.3 * Mihai Cornateanu
+	- Permit pbh for all users
 1.0.2 * Mihai Cornateanu
-        - Extended README
-        - 
+	- Extended README
 1.0.1 * Mihai Cornateanu
-        - Travis build in tests
-        - Puppet parameters default
-        - Fixed cd_func showing erros
+	- Travis build in tests
+	- Puppet parameters default
+	- Fixed cd_func showing erros
 1.0.0 * Mihai Cornateanu
-        - First commit
+	- First commit
