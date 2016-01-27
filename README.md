@@ -25,9 +25,12 @@ Puppet module for installing and configuring an extended Bash history
 [![Modules Count](https://img.shields.io/puppetforge/mc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 [![Release Count](https://img.shields.io/puppetforge/rc/itmanagerro.svg?style=plastic)](https://forge.puppetlabs.com/itmanagerro)
 
-* Realtime history append
-* Directories history
+* Append and preserve Bash history in realtime
+* Directory Stack Builtins - directories history
 * Adding extra attributes
+  * Client IP ($SSH_CLIENT)
+  * Terminal (/dev/pty/01)
+  * Username (SSH variable passed by SSH Keys)
 
 ##Supported OS
 I have tested the module on all these machines:
@@ -60,12 +63,14 @@ class { 'bash_history':
 ~~~
 
 ####Example (complex)
-~~~bash
+~~~puppet
 [2016-01-01 01:01:01] [/dev/pts/0] [192.168.0.1 65535 22] [Mihai] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
+[2016-01-01 01:01:03] [/dev/pts/1] [192.168.0.4 56578 22] [Angela] ~~~ /root ~~~ Logged in as user root     pts/1        2016-01-01 01:01 (angela-pc.localdomain)
 [2016-01-01 01:02:21] [/dev/pts/2] [192.168.0.8 35535 22] [George] ~~~ /root ~~~ cd /var/www
 [2016-01-01 01:03:31] [/dev/pts/2] [192.168.0.8 64535 22] [George] ~~~ /var/www ~~~ rm -fr index.html
 [2016-01-01 01:04:41] [/dev/pts/3] [192.168.0.6 56435 22] [Robert] ~~~ /opt ~~~ mkdir solr-testing
 [2016-01-01 01:05:51] [/dev/pts/6] [192.168.0.3 45645 22] [Gina] ~~~ /tmp ~~~ cd /var/log
+[2016-01-01 01:05:57] [/dev/pts/1] [192.168.0.4 56578 22] [Angela] ~~~ /root ~~~ Logged out from user root     pts/1        2016-01-01 01:01 (angela-pc.localdomain)
 [2016-01-01 01:06:01] [/dev/pts/6] [192.168.0.3 34564 22] [Gina] ~~~ /var/log ~~~ tail -f mail.info
 ~~~
 
@@ -79,19 +84,19 @@ class { 'bash_history':
 
 *hh_username require sshd_config "PermitUserEnvironment yes" and authorized_keys should include*
 
-~~~bash
-environment="REALUSER=Mihai" ssh-rsa AAAAB2NzA3za[...]AxB3cb2jeOsYQ== Mihai Cornateanu SSH KEY
+~~~puppet
+environment="REALUSER=Mihai" ssh-rsa AAAAB2NzA3zaGFD4tdg4tSss[...]AD4fSArShnio3xB3cb2jeOsYQ== Mihai Cornateanu SSH KEY
 ~~~
 
 ####Example (parameters)
 
 **hh_clientip**
-~~~history
+~~~puppet
 [2016-01-01 01:01:01] [192.168.0.1 65535 22] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ~~~
 
 **hh_terminal**
-~~~syslog
+~~~puppet
 [2016-01-01 01:01:01] [/dev/pts/0] ~~~ /usr/src/puppet-bash_history ~~~ ps aux
 ~~~
 
