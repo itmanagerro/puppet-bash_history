@@ -28,8 +28,8 @@ Puppet module for installing and configuring an extended Bash history
 * Append and preserve Bash history in realtime
 * Directory Stack Builtins - directories history
 * Adding extra attributes
-  * Client IP ($SSH_CLIENT)
-  * Terminal (/dev/pty/01)
+  * Client IP ($SSH_CLIENT - [192.168.0.1 65432 22])
+  * Terminal ($TTY - [/dev/pty/01]) 
   * Username (SSH variable passed by SSH Keys)
 
 ##Supported OS
