@@ -1,5 +1,7 @@
+1.0.5 * Mihai Cornateanu
+	- Hiding directory stack on load
 1.0.4 * Mihai Cornateanu
-	- Fixed cd_func show error in usage, not on load
+	- Fixed cd_func show error in usage
 1.0.3 * Mihai Cornateanu
 	- Permit pbh for all users
 1.0.2 * Mihai Cornateanu
