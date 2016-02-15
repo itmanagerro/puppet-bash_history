@@ -21,7 +21,7 @@ cd_func ()
 		the_new_dir=$adir
 	fi
 	[[ ${the_new_dir:0:1} == '~' ]] && the_new_dir="${HOME}${the_new_dir:1}"
-	pushd "${the_new_dir}"
+	pushd "${the_new_dir}" > /dev/null
 	[[ $? -ne 0 ]] && return 1
 	the_new_dir=$(pwd)
 	popd -n +11 2>/dev/null 1>/dev/null
