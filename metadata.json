@@ -1,6 +1,6 @@
 {
   "name": "itmanagerro-bash_history",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Mihai Cornateanu",
   "summary": "Puppet module for Bash history",
   "license": "Apache-2.0",

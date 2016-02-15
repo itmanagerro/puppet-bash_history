@@ -18,7 +18,7 @@ if [ "$PS1" ]; then
 	export WHOAMI=$(who am i)
 	[[ ! -d ${HOME}/.pbh ]] && mkdir -p "${HOME}/.pbh" && touch "${HOME}/.pbh/history_log.${HOSTNAME}"
 	[[ -f /etc/pbh/loghistory_func.sh ]] && . /etc/pbh/loghistory_func.sh && export PROMPT_COMMAND='_loghistory'
-	[[ -f /etc/pbh/cd_func.sh ]] && . /etc/pbh/cd_func.sh
+	[[ -f /etc/pbh/cd_func.sh ]] && . /etc/pbh/cd_func.sh 2>/dev/null 1>/dev/null
 	if type -t hd >/dev/null && type -t cd_func >/dev/null; then
 		for x in `hd 20` `pwd`; do
 			cd_func $x

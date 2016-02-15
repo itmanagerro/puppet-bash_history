@@ -36,7 +36,7 @@ Puppet module for installing and configuring an extended Bash history
 I have tested the module on all these machines:
 
 * CentOS: 6.7 (Final)
-* Debian: 6.0.10 (Squeeze), 7.8 (Wheezy), 8.2 (Jessie)
+* Debian: 6.0.10 (Squeeze), 7.9 (Wheezy), 8.3 (Jessie)
 
 It should work on any Redhat or Debian based operating systems.
 
