@@ -21,7 +21,7 @@ if [ "$PS1" ]; then
 	[[ -f /etc/pbh/cd_func.sh ]] && . /etc/pbh/cd_func.sh 2>/dev/null 1>/dev/null
 	if type -t hd >/dev/null && type -t cd_func >/dev/null; then
 		for x in `hd 20` `pwd`; do
-			cd_func $x
+			cd_func $x 2>/dev/null 1>/dev/null
 		done
 	fi
 	if type _loghistory >/dev/null 2>&1; then

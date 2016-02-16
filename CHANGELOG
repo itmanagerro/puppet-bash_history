@@ -1,3 +1,5 @@
+1.0.6 * Mihai Cornateanu
+	- Silance cd_func errors on load
 1.0.5 * Mihai Cornateanu
 	- Hiding directory stack on load
 1.0.4 * Mihai Cornateanu
